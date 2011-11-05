@@ -50,7 +50,8 @@ class Service::IRC < Service
       Array(messages).each do |message|
         self.puts "#{command} #{room} :#{message}"
       end
-
+      # The bot doesn't output commits right somehow. Sleep after sending message.
+      sleep(1)
       self.puts "PART #{room}" unless without_join
     end
 
